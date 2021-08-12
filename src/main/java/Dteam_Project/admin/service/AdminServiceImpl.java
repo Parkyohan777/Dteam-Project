@@ -21,6 +21,8 @@ public class AdminServiceImpl implements AdminService{
 		
 		AdminVO adminVO =admindao.getLoginInfo(admin_id);
 		
+		System.out.println("서비스 adminVO:"+adminVO);
+		
 		return adminVO;
 	}
 	

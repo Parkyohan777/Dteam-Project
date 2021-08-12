@@ -4,9 +4,9 @@
 <mapper namespace="Dteam_Project.admin.model.AdminDAO">
 	
 	<select id="getLoginInfo" parameterType="String" resultType="Dteam_Project.admin.model.AdminVO">
-		SELECT *
-		 FROM admin
+		SELECT admin_id,admin_pw,admin_position FROM admin
 		WHERE admin_id = #{admin_id}
 	</select>
+	
 	
 </mapper>

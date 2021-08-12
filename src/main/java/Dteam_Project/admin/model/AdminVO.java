@@ -1,11 +1,13 @@
 package Dteam_Project.admin.model;
 
+import java.util.Date;
+
 public class AdminVO {
 
 	private String admin_id;
 	private String admin_pw;
 	private String admin_position;
-	private String admin_reg_date;
+	private Date admin_reg_date;
 	
 	public String getAdmin_id() {
 		return admin_id;
@@ -25,10 +27,10 @@ public class AdminVO {
 	public void setAdmin_position(String admin_position) {
 		this.admin_position = admin_position;
 	}
-	public String getAdmin_reg_date() {
+	public Date getAdmin_reg_date() {
 		return admin_reg_date;
 	}
-	public void setAdmin_reg_date(String admin_reg_date) {
+	public void setAdmin_reg_date(Date admin_reg_date) {
 		this.admin_reg_date = admin_reg_date;
 	}
 	
