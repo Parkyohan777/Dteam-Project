@@ -17,7 +17,7 @@ import Dteam_Project.admin.service.AdminService;
 @RequestMapping("ad")
 public class AdminController {
 	
-
+	// ad 추가 테스트
 	@Autowired
 	private AdminService adminsevice;
 	
