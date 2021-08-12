@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dteam_Project.user.model.UserDAO">	
+
+
+	<select id="getUserInfo" parameterType="string" resultType="UserVO" > 
+		select user_id, user_pw, user_name, user_phone, user_email
+		from user_t 
+		WHERE id = #{user_id}
+		order by user_id desc
+	</select>
+	
+	
+	<insert id="insertUser" parameterType="UserVO">
+		insert into user_t(id, pw, name, phone, email , regdt) 
+		values(#{user_id}, #{user_pw}, #{user_name}, #{user_phone} , #{user_email}, now())
+	</insert>
+	
+
+	<update id="updateUser" parameterType="UserVO">
+		update user_t 
+		set id = #{user_id}, pw = #{user_pw} ,  name = #{user_name} ,  phone = #{user_phone} , email = #{user_email}
+		where user_id = #{user_id}
+	</update>
+	
+	
+	<delete id="deleteUser" parameterType="UserVO">
+		delete from user_t
+		where id = #{user_id}
+	</delete>
+	
+	
+	<select id="getCount" resultType="int">
+		select count(*) from user_t
+	</select>
+	
+	
+	<!-- 뒤에 파라미터인지 resulttpye인지 확인 resultType="UserVO"-->
+	<select id="getUserListPaging"  parameterType="userMap" > 
+		select user_id, user_pw, user_name, user_phone, user_email
+		from user_t 
+		order by user_id desc
+		limit #{stRow}, #{edRow} <!-- 리미트가 있어야 paging -->
+	</select>
+	
+	
+</mapper>
