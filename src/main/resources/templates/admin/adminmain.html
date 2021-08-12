@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>어드민 메인 페이지</h1>
+	
+	<table class="table">
+		<tr>
+			<td>아이디</td><td th:value="${adminvo.admin_id}"></td>
+		</tr>
+		<tr>
+			<td>암호</td><td th:value="${adminvo.admin_pw}"> </td>
+		</tr>
+		<tr>
+			<td>직책</td><td th:value="${adminvo.admin_position}"></td>
+		</tr>
+		<tr>
+			<td>등록일</td><td th:value="${adminvo..admin_reg_date}"></td>
+		</tr>
+	</table>
+</body>
+</html>
