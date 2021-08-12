@@ -23,6 +23,7 @@ public class AdminController {
 	
 	@GetMapping("login")
 	public String login() throws Exception{
+		System.out.println("test");
 		return "admin/adminlogin";
 	}
 	
