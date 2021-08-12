@@ -17,32 +17,30 @@ import Dteam_Project.admin.service.AdminService;
 @RequestMapping("ad")
 public class AdminController {
 	
-	// ad 추가 테스트
 	@Autowired
 	private AdminService adminsevice;
 	
 	@GetMapping("login")
 	public String login() throws Exception{
-		System.out.println("test");
 		return "admin/adminlogin";
 	}
 	
 	@PostMapping("login")
 	public String loginPost(HttpServletRequest request,Model model) throws Exception{
 		
-		String loginId = request.getParameter("admin_id");
-		String loginPass = request.getParameter("admin_pw");
-		AdminVO adminVO = adminsevice.getLoginInfo(loginId);
-		
-		System.out.println("아이디:"+loginId);
-		System.out.println("비번:"+loginPass);
+		String admin_id = request.getParameter("admin_id");
+		System.out.println("아이디:"+admin_id);
+		String admin_pw = request.getParameter("admin_pw");
+		AdminVO adminVO = adminsevice.getLoginInfo(admin_id);
+	
+		System.out.println("adminVO:"+adminVO);
 		
 		if(adminVO  == null) {
 			model.addAttribute("errMsg", "아이디가 없습니다.");
 			return "error";
 		}
 		
-		if(adminVO.getAdmin_pw().equals(loginPass)) {
+		if(adminVO.getAdmin_pw().equals(admin_pw)) {
 			model.addAttribute("adminvo", adminVO);
 			return "admin/adminmain";
 		}else {
